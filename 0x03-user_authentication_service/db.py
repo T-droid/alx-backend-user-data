@@ -57,9 +57,10 @@ class DB:
             user = query.first()
             if user is None:
                 raise NoResultFound("User not found.")
-            return user
         except NoResultFound as e:
             raise NoResultFound("User not found.") from e
+        
+        return user
     
     def update_user(self, user_id: int, **kwarg: Dict) -> None:
         """updates user"""
